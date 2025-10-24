@@ -3,28 +3,26 @@
 @use "./styles/variables.scss" as vars;
 @use "./styles/defaults.scss" as media;
 
-// THIS SCSS CODE IS RUSHED AND SUPER BAD PLEASE DON'T LOOK AT IT LOOOOL
-
 $themes: (
   light: (
-    base-dark-purple: #6c3f7c,
-    base-purple: #6e5e9c,
-    base-purple-200: #cdb3d6,
+    base-dark-purple: #5d74db,
+    base-purple: #7fa5f7,
+    base-purple-200: #b1cfff,
     base-pink: #eedfe4,
-    base-light-purple: #ead7ef,
-    header-text: #6c3f7c,
+    base-light-purple: #dde7fb,
+    header-text: #6f7bfa,
     text: #020202,
-    svgs: #6e5e9c,
+    svgs: #4d86e7,
   ),
   dark: (
-    base-dark-purple: #ddd6d6,
-    base-purple: #2a0f4e,
-    base-purple-200: #62416d,
-    base-pink: #8b4e62,
-    base-light-purple: #401d49,
-    header-text: #e6dede,
-    text: #e6dede,
-    svgs: #e6dede,
+    base-dark-purple: #d6d6dd,
+    base-purple: #182464,
+    base-purple-200: #4c6fa3,
+    base-pink: #4e5c8b,
+    base-light-purple: #1d2349,
+    header-text: #dedfe6,
+    text: #dedfe6,
+    svgs: #dedfe6,
   ),
 );
 
@@ -693,7 +691,7 @@ ul {
   overflow: hidden;
   z-index: 999999;
   border: 8px solid vars.$base-purple;
-  background-color: #2a0f4e;
+  background-color: #1f245f;
   transform: perspective(1000px);
   border-radius: 48px;
 }

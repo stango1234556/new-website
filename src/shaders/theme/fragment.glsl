@@ -1,42 +1,19 @@
-uniform sampler2D uDayTexture1;
-uniform sampler2D uNightTexture1;
-uniform sampler2D uDayTexture2;
-uniform sampler2D uNightTexture2;
-uniform sampler2D uDayTexture3;
-uniform sampler2D uNightTexture3;
-uniform sampler2D uDayTexture4;
-uniform sampler2D uNightTexture4;
-uniform float uMixRatio;
-uniform int uTextureSet;
+uniform sampler2D uDayMap;
+uniform sampler2D uNightMap;
+uniform float uMixRatio;   // 0 = day, 1 = night
 
 varying vec2 vUv;
 
 void main() {
-    vec3 dayColor;
-    vec3 nightColor;
-    
-    if(uTextureSet == 1) {
-        dayColor = texture2D(uDayTexture1, vUv).rgb;
-        nightColor = texture2D(uNightTexture1, vUv).rgb;
-    } else if(uTextureSet == 2) {
-        dayColor = texture2D(uDayTexture2, vUv).rgb;
-        nightColor = texture2D(uNightTexture2, vUv).rgb;
-    } else if(uTextureSet == 3) {
-        dayColor = texture2D(uDayTexture3, vUv).rgb;
-        nightColor = texture2D(uNightTexture3, vUv).rgb;
-    } else {
-        dayColor = texture2D(uDayTexture4, vUv).rgb;
-        nightColor = texture2D(uNightTexture4, vUv).rgb;
-    }
-    
+    vec3 dayColor   = texture2D(uDayMap,   vUv).rgb;
+    vec3 nightColor = texture2D(uNightMap, vUv).rgb;
     vec3 finalColor = mix(dayColor, nightColor, uMixRatio);
 
-    // Remove and add the other #includes if you want your glass to be unaffected
-    finalColor = pow(finalColor, vec3(1.0/2.2));
+    // gamma (if you’re not using three’s colorspace chunk)
+    finalColor = pow(finalColor, vec3(1.0 / 2.2));
     gl_FragColor = vec4(finalColor, 1.0);
 
-    // Use this instead of the pow() calculation to avoid issues with the glass
-    // I actually just like the white looking glass better.
+    // If you prefer three.js tonemapping/colorspace:
     // #include <tonemapping_fragment>
     // #include <colorspace_fragment>
 }

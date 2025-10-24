@@ -124,7 +124,7 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.minDistance = 5;
-controls.maxDistance = 45;
+controls.maxDistance = 30;
 controls.minPolarAngle = 0;
 controls.maxPolarAngle = Math.PI / 2;
 controls.minAzimuthAngle = 0;
@@ -314,9 +314,9 @@ const loadingScreenButton = document.querySelector(".loading-screen-button");
 const noSoundButton = document.querySelector(".no-sound-button");
 
 manager.onLoad = function () {
-  loadingScreenButton.style.border = "8px solid #2a0f4e";
-  loadingScreenButton.style.background = "#401d49";
-  loadingScreenButton.style.color = "#e6dede";
+  loadingScreenButton.style.border = "8px solid #19166dff";
+  loadingScreenButton.style.background = "#1e2b8eff";
+  loadingScreenButton.style.color = "#e6dedeff";
   loadingScreenButton.style.boxShadow = "rgba(0, 0, 0, 0.24) 0px 3px 8px";
   loadingScreenButton.textContent = "Enter!";
   loadingScreenButton.style.cursor = "pointer";
@@ -331,12 +331,12 @@ manager.onLoad = function () {
 
     noSoundButton.textContent = "";
     loadingScreenButton.style.cursor = "default";
-    loadingScreenButton.style.border = "8px solid #6e5e9c";
-    loadingScreenButton.style.background = "#ead7ef";
-    loadingScreenButton.style.color = "#6e5e9c";
+    loadingScreenButton.style.border = "8px solid #4b5b9aff";
+    loadingScreenButton.style.background = "#bdc9f2ff";
+    loadingScreenButton.style.color = "#4b5b9aff";
     loadingScreenButton.style.boxShadow = "none";
-    loadingScreenButton.textContent = "~ 안녕하세요 ~";
-    loadingScreen.style.background = "#ead7ef";
+    loadingScreenButton.textContent = "~ Hello! ~";
+    loadingScreen.style.background = "#bdc9f2ff";
     isDisabled = true;
 
     toggleFavicons();
@@ -487,6 +487,33 @@ function playIntroAnimation() {
       "-=0.5"
     );
 
+  const t3 = gsap.timeline({
+    defaults: {
+      duration: 0.8,
+      ease: "back.out(1.8)",
+    },
+  });
+  t3.timeScale(0.8);
+
+    t3.to(
+      rockStep1.scale,
+      {
+        x: 1,
+        y: 1,
+        z: 1,
+      },
+      "-=0.5"
+    )
+    .to(
+      rockStep2.scale,
+      {
+        x: 1,
+        y: 1,
+        z: 1,
+      },
+      "-=0.5"
+    )
+
   const t2 = gsap.timeline({
     defaults: {
       duration: 0.8,
@@ -495,13 +522,13 @@ function playIntroAnimation() {
   });
   t2.timeScale(0.8);
 
-  t2.to(boba.scale, {
-    z: 1,
-    y: 1,
-    x: 1,
-    delay: 0.4,
-  })
-    .to(
+  // t2.to(boba.scale, {
+  //   z: 1,
+  //   y: 1,
+  //   x: 1,
+  //   delay: 0.4,
+  // })
+    t2.to(
       github.scale,
       {
         x: 1,
@@ -529,177 +556,129 @@ function playIntroAnimation() {
       "-=0.6"
     );
 
-  const tFlowers = gsap.timeline({
-    defaults: {
-      duration: 0.8,
-      ease: "back.out(1.8)",
-    },
-  });
-  tFlowers.timeScale(0.8);
+  // const tFlowers = gsap.timeline({
+  //   defaults: {
+  //     duration: 0.8,
+  //     ease: "back.out(1.8)",
+  //   },
+  // });
+  // tFlowers.timeScale(0.8);
 
-  tFlowers
-    .to(flower5.scale, {
-      x: 1,
-      y: 1,
-      z: 1,
-    })
-    .to(
-      flower4.scale,
-      {
-        x: 1,
-        y: 1,
-        z: 1,
-      },
-      "-=0.5"
-    )
-    .to(
-      flower3.scale,
-      {
-        x: 1,
-        y: 1,
-        z: 1,
-      },
-      "-=0.5"
-    )
-    .to(
-      flower2.scale,
-      {
-        x: 1,
-        y: 1,
-        z: 1,
-      },
-      "-=0.5"
-    )
-    .to(
-      flower1.scale,
-      {
-        x: 1,
-        y: 1,
-        z: 1,
-      },
-      "-=0.5"
-    );
+  // tFlowers
+  //   .to(flower5.scale, {
+  //     x: 1,
+  //     y: 1,
+  //     z: 1,
+  //   })
+  //   .to(
+  //     flower4.scale,
+  //     {
+  //       x: 1,
+  //       y: 1,
+  //       z: 1,
+  //     },
+  //     "-=0.5"
+  //   )
+  //   .to(
+  //     flower3.scale,
+  //     {
+  //       x: 1,
+  //       y: 1,
+  //       z: 1,
+  //     },
+  //     "-=0.5"
+  //   )
+  //   .to(
+  //     flower2.scale,
+  //     {
+  //       x: 1,
+  //       y: 1,
+  //       z: 1,
+  //     },
+  //     "-=0.5"
+  //   )
+  //   .to(
+  //     flower1.scale,
+  //     {
+  //       x: 1,
+  //       y: 1,
+  //       z: 1,
+  //     },
+  //     "-=0.5"
+  //   );
 
-  const tBoxes = gsap.timeline({
-    defaults: {
-      duration: 0.8,
-      ease: "back.out(1.8)",
-    },
-  });
-  tBoxes.timeScale(0.8);
+  // const tBoxes = gsap.timeline({
+  //   defaults: {
+  //     duration: 0.8,
+  //     ease: "back.out(1.8)",
+  //   },
+  // });
+  // tBoxes.timeScale(0.8);
 
-  tBoxes
-    .to(box1.scale, {
-      x: 1,
-      y: 1,
-      z: 1,
-    })
-    .to(
-      box2.scale,
-      {
-        x: 1,
-        y: 1,
-        z: 1,
-      },
-      "-=0.5"
-    )
-    .to(
-      box3.scale,
-      {
-        x: 1,
-        y: 1,
-        z: 1,
-      },
-      "-=0.5"
-    );
+  // tBoxes
+  //   .to(box1.scale, {
+  //     x: 1,
+  //     y: 1,
+  //     z: 1,
+  //   })
+  //   .to(
+  //     box2.scale,
+  //     {
+  //       x: 1,
+  //       y: 1,
+  //       z: 1,
+  //     },
+  //     "-=0.5"
+  //   )
+  //   .to(
+  //     box3.scale,
+  //     {
+  //       x: 1,
+  //       y: 1,
+  //       z: 1,
+  //     },
+  //     "-=0.5"
+  //   );
 
-  const tLamp = gsap.timeline({
-    defaults: {
-      duration: 0.8,
-      delay: 0.2,
-      ease: "back.out(1.8)",
-    },
-  });
-  tLamp.timeScale(0.8);
+  // const tLamp = gsap.timeline({
+  //   defaults: {
+  //     duration: 0.8,
+  //     delay: 0.2,
+  //     ease: "back.out(1.8)",
+  //   },
+  // });
+  // tLamp.timeScale(0.8);
 
-  tLamp.to(lamp.scale, {
-    x: 1,
-    y: 1,
-    z: 1,
-  });
+  // tLamp.to(lamp.scale, {
+  //   x: 1,
+  //   y: 1,
+  //   z: 1,
+  // });
 
-  const tSlippers = gsap.timeline({
-    defaults: {
-      duration: 0.8,
-      ease: "back.out(1.8)",
-    },
-  });
-  tSlippers.timeScale(0.8);
+  // const tSlippers = gsap.timeline({
+  //   defaults: {
+  //     duration: 0.8,
+  //     ease: "back.out(1.8)",
+  //   },
+  // });
+  // tSlippers.timeScale(0.8);
 
-  tSlippers
-    .to(slippers1.scale, {
-      x: 1,
-      y: 1,
-      z: 1,
-      delay: 0.5,
-    })
-    .to(
-      slippers2.scale,
-      {
-        x: 1,
-        y: 1,
-        z: 1,
-      },
-      "-=0.5"
-    );
-
-  const tEggs = gsap.timeline({
-    defaults: {
-      duration: 0.8,
-      ease: "back.out(1.8)",
-    },
-  });
-  tEggs.timeScale(0.8);
-
-  tEggs
-    .to(egg1.scale, {
-      x: 1,
-      y: 1,
-      z: 1,
-    })
-    .to(
-      egg2.scale,
-      {
-        x: 1,
-        y: 1,
-        z: 1,
-      },
-      "-=0.5"
-    )
-    .to(
-      egg3.scale,
-      {
-        x: 1,
-        y: 1,
-        z: 1,
-      },
-      "-=0.5"
-    );
-
-  const tFish = gsap.timeline({
-    defaults: {
-      delay: 0.8,
-      duration: 0.8,
-      ease: "back.out(1.8)",
-    },
-  });
-  tFish.timeScale(0.8);
-
-  tFish.to(fish.scale, {
-    x: 1,
-    y: 1,
-    z: 1,
-  });
+  // tSlippers
+  //   .to(slippers1.scale, {
+  //     x: 1,
+  //     y: 1,
+  //     z: 1,
+  //     delay: 0.5,
+  //   })
+  //   .to(
+  //     slippers2.scale,
+  //     {
+  //       x: 1,
+  //       y: 1,
+  //       z: 1,
+  //     },
+  //     "-=0.5"
+  //   );
 
   const lettersTl = gsap.timeline({
     defaults: {
@@ -945,6 +924,64 @@ function playIntroAnimation() {
         ease: "back.out(1.8)",
       },
       ">-0.2"
+    )
+    .to(
+      letter9.position,
+      {
+        y: letter9.userData.initialPosition.y + 0.3,
+        duration: 0.4,
+        ease: "back.out(1.8)",
+      },
+      "-=0.5"
+    )
+    .to(
+      letter9.scale,
+      {
+        x: 1,
+        y: 1,
+        z: 1,
+        duration: 0.4,
+        ease: "back.out(1.8)",
+      },
+      "<"
+    )
+    .to(
+      letter9.position,
+      {
+        y: letter9.userData.initialPosition.y,
+        duration: 0.4,
+        ease: "back.out(1.8)",
+      },
+      ">-0.2"
+    )
+    .to(
+      lettera.position,
+      {
+        y: lettera.userData.initialPosition.y + 0.3,
+        duration: 0.4,
+        ease: "back.out(1.8)",
+      },
+      "-=0.5"
+    )
+    .to(
+      lettera.scale,
+      {
+        x: 1,
+        y: 1,
+        z: 1,
+        duration: 0.4,
+        ease: "back.out(1.8)",
+      },
+      "<"
+    )
+    .to(
+      lettera.position,
+      {
+        y: lettera.userData.initialPosition.y,
+        duration: 0.4,
+        ease: "back.out(1.8)",
+      },
+      ">-0.2"
     );
 
   const pianoKeysTl = gsap.timeline({
@@ -1051,6 +1088,62 @@ const textureMap = {
     day: "/textures/room/day/fourth_texture_set_day.webp",
     night: "/textures/room/night/fourth_texture_set_night.webp",
   },
+  Fifth: {
+    day: "/textures/room/day/fifth_texture_set_day.webp",
+    night: "/textures/room/night/fifth_texture_set_night.webp",
+  },
+  Sixth: {
+    day: "/textures/room/day/sixth_texture_set_day.webp",
+    night: "/textures/room/night/sixth_texture_set_night.webp",
+  },
+  Seventh: {
+    day: "/textures/room/day/seventh_texture_set_day.webp",
+    night: "/textures/room/night/seventh_texture_set_night.webp",
+  },
+  Eighth: {
+    day: "/textures/room/day/eighth_texture_set_day.webp",
+    night: "/textures/room/night/eighth_texture_set_night.webp",
+  },
+  Ninth: {
+    day: "/textures/room/day/ninth_texture_set_day.webp",
+    night: "/textures/room/night/ninth_texture_set_night.webp",
+  },
+  Tenth: {
+    day: "/textures/room/day/tenth_texture_set_day.webp",
+    night: "/textures/room/night/tenth_texture_set_night.webp",
+  },
+  Eleventh: {
+    day: "/textures/room/day/eleventh_texture_set_day.webp",
+    night: "/textures/room/night/eleventh_texture_set_night.webp",
+  },
+  Twelfth: {
+    day: "/textures/room/day/twelfth_texture_set_day.webp",
+    night: "/textures/room/night/twelfth_texture_set_night.webp",
+  },
+  Thirteenth: {
+    day: "/textures/room/day/thirteenth_texture_set_day.webp",
+    night: "/textures/room/night/thirteenth_texture_set_night.webp",
+  },
+  Fourteenth: {
+    day: "/textures/room/day/fourteenth_texture_set_day.webp",
+    night: "/textures/room/night/fourteenth_texture_set_night.webp",
+  },
+  Fifteenth: {
+    day: "/textures/room/day/fifteenth_texture_set_day.webp",
+    night: "/textures/room/night/fifteenth_texture_set_night.webp",
+  },
+  Sixteenth: {
+    day: "/textures/room/day/sixteenth_texture_set_day.webp",
+    night: "/textures/room/night/sixteenth_texture_set_night.webp",
+  },
+  Seventeenth: {
+    day: "/textures/room/day/seventeenth_texture_set_day.webp",
+    night: "/textures/room/night/seventeenth_texture_set_night.webp",
+  },
+  Eighteenth: {
+    day: "/textures/room/day/eighteenth_texture_set_day.webp",
+    night: "/textures/room/night/eighteenth_texture_set_night.webp",
+  },
 };
 
 const loadedTextures = {
@@ -1096,40 +1189,32 @@ const whiteMaterial = new THREE.MeshBasicMaterial({
   color: 0xffffff,
 });
 
-const createMaterialForTextureSet = (textureSet) => {
-  const material = new THREE.ShaderMaterial({
+const createMaterialForTextureSet = (setKey) => {
+  const mat = new THREE.ShaderMaterial({
     uniforms: {
-      uDayTexture1: { value: loadedTextures.day.First },
-      uNightTexture1: { value: loadedTextures.night.First },
-      uDayTexture2: { value: loadedTextures.day.Second },
-      uNightTexture2: { value: loadedTextures.night.Second },
-      uDayTexture3: { value: loadedTextures.day.Third },
-      uNightTexture3: { value: loadedTextures.night.Third },
-      uDayTexture4: { value: loadedTextures.day.Fourth },
-      uNightTexture4: { value: loadedTextures.night.Fourth },
+      uDayMap:   { value: loadedTextures.day[setKey] },
+      uNightMap: { value: loadedTextures.night[setKey] },
       uMixRatio: { value: 0 },
-      uTextureSet: { value: textureSet },
     },
     vertexShader: themeVertexShader,
     fragmentShader: themeFragmentShader,
   });
 
-  Object.entries(material.uniforms).forEach(([key, uniform]) => {
-    if (uniform.value instanceof THREE.Texture) {
-      uniform.value.minFilter = THREE.LinearFilter;
-      uniform.value.magFilter = THREE.LinearFilter;
-    }
+  // ensure good sampling defaults
+  [mat.uniforms.uDayMap.value, mat.uniforms.uNightMap.value].forEach(tex => {
+    tex.minFilter = THREE.LinearFilter;
+    tex.magFilter = THREE.LinearFilter;
+    tex.flipY = false;
+    tex.colorSpace = THREE.SRGBColorSpace;
   });
 
-  return material;
+  return mat;
 };
 
-const roomMaterials = {
-  First: createMaterialForTextureSet(1),
-  Second: createMaterialForTextureSet(2),
-  Third: createMaterialForTextureSet(3),
-  Fourth: createMaterialForTextureSet(4),
-};
+const roomMaterials = {};
+Object.keys(textureMap).forEach((key) => {
+  roomMaterials[key] = createMaterialForTextureSet(key);
+});
 
 // Smoke Shader setup
 const smokeGeometry = new THREE.PlaneGeometry(1, 1, 16, 64);
@@ -1152,9 +1237,9 @@ const smokeMaterial = new THREE.ShaderMaterial({
   depthWrite: false,
 });
 
-const smoke = new THREE.Mesh(smokeGeometry, smokeMaterial);
-smoke.position.y = 1.83;
-scene.add(smoke);
+// const smoke = new THREE.Mesh(smokeGeometry, smokeMaterial);
+// smoke.position.y = 1.83;
+// scene.add(smoke);
 
 const videoElement = document.createElement("video");
 videoElement.src = "/textures/video/Screen.mp4";
@@ -1186,9 +1271,11 @@ let plank1,
   boba,
   github,
   youtube,
-  twitter;
+  twitter,
+  rockStep1,
+  rockStep2;
 
-let letter1, letter2, letter3, letter4, letter5, letter6, letter7, letter8;
+let letter1, letter2, letter3, letter4, letter5, letter6, letter7, letter8, letter9, lettera;
 
 let C1_Key,
   Cs1_Key,
@@ -1215,15 +1302,9 @@ let C2_Key,
   As2_Key,
   B2_Key;
 
-let flower1, flower2, flower3, flower4, flower5;
-
-let box1, box2, box3;
-
 let lamp;
 
 let slippers1, slippers2;
-
-let egg1, egg2, egg3;
 
 let frame1, frame2, frame3;
 
@@ -1241,6 +1322,8 @@ const objectsWithIntroAnimations = [
   "GitHub",
   "YouTube",
   "Twitter",
+  "RockStep_1",
+  "RockStep_2",
   "Name_Letter_1",
   "Name_Letter_2",
   "Name_Letter_3",
@@ -1249,21 +1332,8 @@ const objectsWithIntroAnimations = [
   "Name_Letter_6",
   "Name_Letter_7",
   "Name_Letter_8",
-  "Flower_1",
-  "Flower_2",
-  "Flower_3",
-  "Flower_4",
-  "Flower_5",
-  "Box_1",
-  "Box_2",
-  "Box_3",
-  "Lamp",
-  "Slipper_1",
-  "Slipper_2",
-  "Fish_Fourth",
-  "Egg_1",
-  "Egg_2",
-  "Egg_3",
+  "Name_Letter_9",
+  "Name_Letter_a",
   "Frame_1",
   "Frame_2",
   "Frame_3",
@@ -1302,14 +1372,6 @@ function hasIntroAnimation(objectName) {
 loader.load("/models/Room_Portfolio.glb", (glb) => {
   glb.scene.traverse((child) => {
     if (child.isMesh) {
-      if (child.name.includes("Fish_Fourth")) {
-        fish = child;
-        child.position.x += 0.04;
-        child.position.z -= 0.03;
-        child.userData.initialPosition = new THREE.Vector3().copy(
-          child.position
-        );
-      }
       if (child.name.includes("Chair_Top")) {
         chairTop = child;
         child.userData.initialRotation = new THREE.Euler().copy(child.rotation);
@@ -1353,9 +1415,6 @@ loader.load("/models/Room_Portfolio.glb", (glb) => {
       } else if (child.name.includes("Contact_Button")) {
         contactBtn = child;
         child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Boba")) {
-        boba = child;
-        child.scale.set(0, 0, 0);
       } else if (child.name.includes("GitHub")) {
         github = child;
         child.scale.set(0, 0, 0);
@@ -1364,6 +1423,12 @@ loader.load("/models/Room_Portfolio.glb", (glb) => {
         child.scale.set(0, 0, 0);
       } else if (child.name.includes("Twitter")) {
         twitter = child;
+        child.scale.set(0, 0, 0);
+      } else if (child.name.includes("RockStep_1")) {
+        rockStep1 = child;
+        child.scale.set(0, 0, 0);
+      } else if (child.name.includes("RockStep_2")) {
+        rockStep2 = child;
         child.scale.set(0, 0, 0);
       } else if (child.name.includes("Name_Letter_1")) {
         letter1 = child;
@@ -1389,49 +1454,11 @@ loader.load("/models/Room_Portfolio.glb", (glb) => {
       } else if (child.name.includes("Name_Letter_8")) {
         letter8 = child;
         child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Flower_1")) {
-        flower1 = child;
+      } else if (child.name.includes("Name_Letter_9")) {
+        letter9 = child;
         child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Flower_2")) {
-        flower2 = child;
-        child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Flower_3")) {
-        flower3 = child;
-        child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Flower_4")) {
-        flower4 = child;
-        child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Flower_5")) {
-        flower5 = child;
-        child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Box_1")) {
-        box1 = child;
-        child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Box_2")) {
-        box2 = child;
-        child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Box_3")) {
-        box3 = child;
-        child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Lamp")) {
-        lamp = child;
-        child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Slipper_1")) {
-        slippers1 = child;
-        child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Slipper_2")) {
-        slippers2 = child;
-        child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Fish_Fourth")) {
-        child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Egg_1")) {
-        egg1 = child;
-        child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Egg_2")) {
-        egg2 = child;
-        child.scale.set(0, 0, 0);
-      } else if (child.name.includes("Egg_3")) {
-        egg3 = child;
+      } else if (child.name.includes("Name_Letter_a")) {
+        lettera = child;
         child.scale.set(0, 0, 0);
       } else if (child.name.includes("Frame_1")) {
         frame1 = child;
@@ -1478,8 +1505,8 @@ loader.load("/models/Room_Portfolio.glb", (glb) => {
 
             if (child.name.includes("Fan")) {
               if (
-                child.name.includes("Fan_2") ||
-                child.name.includes("Fan_4")
+                child.name.includes("Fan_4") ||
+                child.name.includes("Fan_5")
               ) {
                 xAxisFans.push(child);
               } else {
@@ -1614,6 +1641,12 @@ function createStaticHitbox(originalObject) {
     transparent: true,
     opacity: 0,
     visible: false,
+
+    // transparent: true,
+    // opacity: 0.2,        
+    // visible: true,       
+    // color: 0xff0000,     
+    // depthWrite: false,
   });
 
   const hitbox = new THREE.Mesh(hitboxGeometry, hitboxMaterial);
@@ -1633,11 +1666,10 @@ function createStaticHitbox(originalObject) {
 function createDelayedHitboxes() {
   objectsNeedingHitboxes.forEach((child) => {
     const raycastObject = createStaticHitbox(child);
-
     if (raycastObject !== child) {
       scene.add(raycastObject);
     }
-
+    
     raycasterObjects.push(raycastObject);
     hitboxToObjectMap.set(raycastObject, child);
   });
@@ -1710,31 +1742,6 @@ function playHoverAnimation(objectHitbox, isHovering) {
   gsap.killTweensOf(object.rotation);
   gsap.killTweensOf(object.position);
 
-  if (object.name.includes("Coffee")) {
-    gsap.killTweensOf(smoke.scale);
-    if (isHovering) {
-      gsap.to(smoke.scale, {
-        x: 1.4,
-        y: 1.4,
-        z: 1.4,
-        duration: 0.5,
-        ease: "back.out(2)",
-      });
-    } else {
-      gsap.to(smoke.scale, {
-        x: 1,
-        y: 1,
-        z: 1,
-        duration: 0.3,
-        ease: "back.out(2)",
-      });
-    }
-  }
-
-  if (object.name.includes("Fish")) {
-    scale = 1.2;
-  }
-
   if (isHovering) {
     // Scale animation for all objects
     gsap.to(object.scale, {
@@ -1765,7 +1772,7 @@ function playHoverAnimation(objectHitbox, isHovering) {
       });
     }
 
-    if (object.name.includes("Boba") || object.name.includes("Name_Letter")) {
+    if (object.name.includes("Name_Letter")) {
       gsap.to(object.position, {
         y: object.userData.initialPosition.y + 0.2,
         duration: 0.5,
@@ -2058,15 +2065,6 @@ const render = (timestamp) => {
       (1 - Math.abs(Math.sin(time * 0.5)) * 0.3);
 
     chairTop.rotation.y = chairTop.userData.initialRotation.y + rotationOffset;
-  }
-
-  // Fish up and down animation
-  if (fish) {
-    const time = timestamp * 0.0015;
-    const amplitude = 0.12;
-    const position =
-      amplitude * Math.sin(time) * (1 - Math.abs(Math.sin(time)) * 0.1);
-    fish.position.y = fish.userData.initialPosition.y + position;
   }
 
   // Raycaster
